@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+
+  "title": "Andrey Unger site",
+
+  "header_hi": "Hi, I am",
+  "header_name": "Andrey Unger",
+  "header_position": "Full-stack developer",
+  "header_text": "Software development since 2003",
+
+  "menu_about": "About me",
+  "menu_skills": "Skills",
+  "menu_portfolio": "Portfolio",
+  "menu_contact": "Contact me"
+}
