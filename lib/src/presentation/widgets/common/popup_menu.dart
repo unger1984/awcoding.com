@@ -48,16 +48,6 @@ class PopupMenu extends StatelessWidget {
           onTap: () => context.goNamed("portfolio"),
         ),
         PopupMenuItem(
-          child: Text(
-            S.of(context).menu_contact,
-            style: TextStyle(
-              fontFamily: 'Montserrat',
-              fontWeight: GoRouter.of(context).location == "/contact" ? FontWeight.w700 : FontWeight.normal,
-            ),
-          ),
-          onTap: () => context.goNamed("contact"),
-        ),
-        PopupMenuItem(
           child: DropdownButtonFormField<String>(
             value: Intl.getCurrentLocale(),
             items: [

@@ -10,7 +10,7 @@ class SkillItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

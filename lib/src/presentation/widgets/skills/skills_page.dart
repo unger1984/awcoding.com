@@ -28,7 +28,7 @@ class SkillsPage extends StatelessWidget {
                     if (constrain.maxWidth > widthMobile)
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
-                        child: MainMenu(),
+                        child: Center(child: MainMenu()),
                       ),
                     SizedBox(height: 20),
                     Text(

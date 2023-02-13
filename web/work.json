@@ -1,0 +1,99 @@
+[
+  {
+    "title": "Kovrov Museum",
+    "created": "03.03.2022",
+    "img": "kovrov.png",
+    "descriptions": "Это приложение рассказывает об экспонатах Музея Воинской Славы в г. Ковров\nРеализовано на Flutter. Серверная часть на Go и админка на Flutter",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.kovrov.kovrovapp",
+    "linkApple": "https://apps.apple.com/app/kovrov-museum/id1612119693"
+  },
+  {
+    "title": "Musetory",
+    "created": "21.11.2020",
+    "img": "musetory.png",
+    "descriptions": "2-е место в номинации «Меняющие реальность» в ПРЕМИИ «НОВАТОР МОСКВЫ» 2021\n«Музеторий» представляет экспонаты в музее, как посты в социальных сетях, которые можно лайкать, комментировать и добавлять в избранное.\nРеализовано на Flutter. Серверная часть на NodeJS и админка на React",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.musetory",
+    "linkApple": "https://apps.apple.com/ru/app/musetory/id1539900926"
+  },
+  {
+    "title": "Ergoforma",
+    "created": "23.07.2019",
+    "img": "ergoforma.png",
+    "descriptions": "Бонусная программа по комрессионному трикотажу Ergoforma\nРеализовано на React Native. API реализовано средствами заказчика",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.atletika",
+    "linkApple": "https://apps.apple.com/ru/app/ergoforma/id1472518725"
+  },
+  {
+    "title": "GumsNet",
+    "created": "06.12.2018",
+    "img": "gumsnet.png",
+    "descriptions": "Личный кабинет интернет провайдера\nРеализовано на React Native. Вместо API на сервере приложение работает с html кодом сайта",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.gumsnet",
+    "linkApple": "https://itunes.apple.com/ru/app/GumsNet/id1447242505"
+  },
+  {
+    "title": "Postel Deluxe",
+    "created": "05.12.2018",
+    "img": "posteldelux.png",
+    "descriptions": "Приложение для получения скидок по домашнему текстилю\nРеализовано на React Native.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.posteldeluxe",
+    "linkApple": "https://itunes.apple.com/ru/app/postel-deluxe-скидки-и-акции/id1445849945"
+  },
+  {
+    "title": "FL.RU",
+    "created": "29.03.2018",
+    "img": "fl.png",
+    "descriptions": "Неофициальный клиент популярной фриланс биржи fl.ru\nРеализовано на React Native. Серверная часть на NodeJS.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.fl"
+  },
+  {
+    "title": "Mems Reader",
+    "created": "04.03.2018",
+    "img": "memsreader.png",
+    "descriptions": "Развлекательное приложение позволяющее тебе скрасить время просмотром различных приколов и юморных картинок\nРеализовано на React Native.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.memsreader"
+  },
+  {
+    "title": "BashIm",
+    "created": "03.03.2018",
+    "img": "bashim.png",
+    "descriptions": "Читалка самого известного цитатника рунета\nРеализовано на React Native.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.bashim"
+  },
+  {
+    "title": "TheListings",
+    "created": "30.10.2017",
+    "img": "thelistings.png",
+    "descriptions": "Trade online without any fees on The Listings New Zealand\nРеализовано на React Native. Мной написано только мобильное приложение. Сервер реализован на стороне заказчика.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.thelistings"
+  },
+  {
+    "title": "Endure",
+    "created": "12.05.2017",
+    "img": "endure.png",
+    "descriptions": "Train and Practice your kegel muscle (pelvic floor muscle).\nPelvic floor exercises can be effective in treating premature ejaculation in men who have had lifelong problems\nРеализовано на React Native. Мной написано только мобильное приложение. Сервер реализован на стороне заказчика.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.endure"
+  },
+  {
+    "title": "BCM Calculator",
+    "created": "17.04.2017",
+    "img": "bcmcalculator.png",
+    "descriptions": "Nissan/Infinity BCM Out-code to PIN-code converter Tool\nРеализовано на React Native. Мной написано только мобильное приложение. Сервер реализован на стороне заказчика.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.bcmcalculator",
+    "linkApple": "https://itunes.apple.com/us/app/bcm-calculator/id1222909233?l=ru&ls=1&mt=8"
+  },
+  {
+    "title": "Броневик",
+    "created": "04.02.2017",
+    "img": "bronevik.png",
+    "descriptions": "Запись на услуги по временным слотам.\nРеализовано на React Native. Мной написано только мобильное приложение. Сервер реализован на стороне заказчика.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.assistant"
+  },
+  {
+    "title": "Рецепты и рецептики",
+    "created": "06.02.2017",
+    "img": "krasaten.png",
+    "descriptions": "Кулинарное приложение с простыми и вкусными рецептами на каждый день или к праздничному столу.\nРеализовано на React Native. Мной написано только мобильное приложение. Сервер реализован на стороне заказчика.",
+    "linkGoogle": "https://play.google.com/store/apps/details?id=com.awcoding.krasaten"
+  }
+]

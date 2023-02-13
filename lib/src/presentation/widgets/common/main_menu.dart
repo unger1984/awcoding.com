@@ -34,12 +34,6 @@ class MainMenu extends StatelessWidget {
           title: S.current.menu_portfolio,
           active: GoRouter.of(context).location == "/portfolio",
         ),
-        MenuButton(
-          main: main,
-          onPressed: () => context.goNamed("contact"),
-          title: S.current.menu_contact,
-          active: GoRouter.of(context).location == "/contact",
-        ),
         SizedBox(
           width: 90,
           child: DropdownButtonFormField<String>(
