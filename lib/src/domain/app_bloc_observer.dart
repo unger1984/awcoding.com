@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:portfolio/scr/utils/logger.dart';
+import 'package:portfolio/src/utils/logger.dart';
 
 @sealed
 class AppBlocObserver extends BlocObserver {

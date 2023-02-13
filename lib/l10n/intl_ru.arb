@@ -1,0 +1,15 @@
+{
+  "@@locale": "ru",
+
+  "title": "Сайт Андрея Унгера",
+
+  "header_hi": "Привет, меня зовут",
+  "header_name": "Андрей Унгер",
+  "header_position": "Full-stack разработчик",
+  "header_text": "Разработка програмного обеспечения с 2003г",
+
+  "menu_about": "Обо мне",
+  "menu_skills": "Навыки",
+  "menu_portfolio": "Портфолио",
+  "menu_contact": "Контакты"
+}

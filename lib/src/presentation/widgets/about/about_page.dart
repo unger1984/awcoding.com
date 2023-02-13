@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/generated/l10n.dart';
-import 'package:portfolio/scr/presentation/styles/styles.dart';
-import 'package:portfolio/scr/presentation/widgets/common/menu_button.dart';
+import 'package:portfolio/src/presentation/styles/styles.dart';
+import 'package:portfolio/src/presentation/widgets/common/main_menu.dart';
 
-class HeaderClipperRight extends CustomClipper<Path> {
+class AboutClipperRight extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path()
@@ -22,7 +22,7 @@ class HeaderClipperRight extends CustomClipper<Path> {
   }
 }
 
-class HeaderClipperBottom extends CustomClipper<Path> {
+class AboutClipperBottom extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var controlPoint = Offset(size.width - 115, 100);
@@ -47,8 +47,8 @@ class HeaderClipperBottom extends CustomClipper<Path> {
 }
 
 @immutable
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class Header extends StatelessWidget {
         }
 
         return SizedBox(
-          height: height,
+          height: double.infinity,
           child: Stack(
             children: [
               Container(
@@ -84,71 +84,46 @@ class Header extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20.0, right: 20, top: 20, bottom: sheight),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(Icons.ac_unit, size: 60),
-                              Expanded(child: SizedBox()),
-                              Text(
-                                S.current.header_hi,
-                                style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.w700, fontSize: sizeHi),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 60.0, right: 20, top: 20, bottom: sheight),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(Icons.ac_unit, size: 60),
+                            Expanded(child: SizedBox()),
+                            Text(
+                              S.current.header_hi,
+                              style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.w700, fontSize: sizeHi),
+                            ),
+                            Text(
+                              S.current.header_name,
+                              style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.w700, fontSize: sizeName),
+                            ),
+                            Text(
+                              S.current.header_position,
+                              style: TextStyle(
+                                fontFamily: 'Raleway',
+                                color: Color(0xff909090),
+                                fontWeight: FontWeight.w800,
+                                fontSize: sizePosition,
                               ),
-                              Text(
-                                S.current.header_name,
-                                style:
-                                    TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.w700, fontSize: sizeName),
-                              ),
-                              Text(
-                                S.current.header_position,
-                                style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  color: Color(0xff909090),
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: sizePosition,
-                                ),
-                              ),
-                              Expanded(child: SizedBox()),
-                            ],
-                          ),
+                            ),
+                            Expanded(child: SizedBox()),
+                          ],
                         ),
                       ),
                     ),
                     Expanded(
                       child: ClipPath(
-                        clipper: HeaderClipperRight(),
+                        clipper: AboutClipperRight(),
                         child: Container(
                           color: Colors.blueGrey,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 80.0, top: 65, bottom: 20),
-                                child: Wrap(
-                                  children: [
-                                    MenuButton(
-                                      onPressed: () {},
-                                      title: S.current.menu_about,
-                                    ),
-                                    MenuButton(
-                                      onPressed: () {},
-                                      title: S.current.menu_skills,
-                                    ),
-                                    MenuButton(
-                                      onPressed: () {},
-                                      title: S.current.menu_portfolio,
-                                    ),
-                                    MenuButton(
-                                      onPressed: () {},
-                                      title: S.current.menu_contact,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              MainMenu(),
                               Expanded(
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
@@ -177,7 +152,7 @@ class Header extends StatelessWidget {
                   child: Stack(
                     children: [
                       ClipPath(
-                        clipper: HeaderClipperBottom(),
+                        clipper: AboutClipperBottom(),
                         child: Container(
                           color: Color(0xff1d2428),
                           child: Padding(
