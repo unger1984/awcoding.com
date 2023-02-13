@@ -40,25 +40,27 @@ class _AppState extends State<App> {
       child: BlocBuilder<LocaleBLoC, LocaleState>(
         builder: (context, state) => state.map(
           loading: (_) => Container(),
-          success: (st) => MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            locale: Locale.fromSubtags(languageCode: st.locale),
-            supportedLocales: S.delegate.supportedLocales,
-            title: 'Portfolio site',
-            restorationScopeId: 'root',
-            theme: ThemeData(
-              useMaterial3: true,
-              colorSchemeSeed: Colors.blueGrey,
-              scaffoldBackgroundColor: Colors.white,
-            ),
-            routerConfig: AppRouter.router,
-          ),
+          success: (st) {
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              locale: Locale.fromSubtags(languageCode: st.locale),
+              supportedLocales: S.delegate.supportedLocales,
+              title: 'Portfolio site',
+              restorationScopeId: 'root',
+              theme: ThemeData(
+                useMaterial3: true,
+                colorSchemeSeed: Colors.blueGrey,
+                scaffoldBackgroundColor: Colors.white,
+              ),
+              routerConfig: AppRouter.router,
+            );
+          },
         ),
       ),
     );

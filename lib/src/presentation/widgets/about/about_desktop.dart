@@ -123,7 +123,10 @@ class AboutDesktop extends StatelessWidget {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              MainMenu(),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 80.0, top: 65, bottom: 20),
+                                child: MainMenu(main: true),
+                              ),
                               Expanded(
                                 child: Align(
                                   alignment: Alignment.bottomCenter,

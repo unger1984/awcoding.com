@@ -11,5 +11,9 @@
   "menu_about": "Обо мне",
   "menu_skills": "Навыки",
   "menu_portfolio": "Портфолио",
-  "menu_contact": "Контакты"
+  "menu_contact": "Контакты",
+
+  "skills_1": "Frontend Web:",
+  "skills_2": "Frontend Mobile:",
+  "skills_3": "Backend:"
 }

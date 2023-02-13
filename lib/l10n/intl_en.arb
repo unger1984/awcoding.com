@@ -11,5 +11,9 @@
   "menu_about": "About me",
   "menu_skills": "Skills",
   "menu_portfolio": "Portfolio",
-  "menu_contact": "Contact me"
+  "menu_contact": "Contact me",
+
+  "skills_1": "Frontend Web:",
+  "skills_2": "Frontend Mobile:",
+  "skills_3": "Backend:"
 }

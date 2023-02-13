@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/presentation/widgets/about/about_page.dart';
 import 'package:portfolio/src/presentation/widgets/common/popup_menu.dart';
+import 'package:portfolio/src/presentation/widgets/skills/skills_page.dart';
 import 'package:portfolio/src/utils/const.dart';
 
 class PageFade<T> extends Page<T> {
@@ -115,7 +116,7 @@ class AppRouter {
           GoRoute(
             path: "/skills",
             name: "skills",
-            pageBuilder: (context, state) => transitionsFade(state, AboutPage()),
+            pageBuilder: (context, state) => transitionsFade(state, SkillsPage()),
           ),
           GoRoute(
             path: "/portfolio",
