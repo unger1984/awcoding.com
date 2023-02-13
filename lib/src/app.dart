@@ -41,6 +41,7 @@ class _AppState extends State<App> {
         builder: (context, state) => state.map(
           loading: (_) => Container(),
           success: (st) => MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

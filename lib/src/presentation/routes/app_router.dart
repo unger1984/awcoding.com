@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/src/presentation/widgets/about/about_page.dart';
+import 'package:portfolio/src/presentation/widgets/common/popup_menu.dart';
+import 'package:portfolio/src/utils/const.dart';
 
 class PageFade<T> extends Page<T> {
   final Widget child;
@@ -85,7 +87,25 @@ class AppRouter {
     debugLogDiagnostics: true,
     routes: [
       ShellRoute(
-        builder: (context, state, child) => Scaffold(body: child),
+        builder: (context, state, child) => LayoutBuilder(
+          builder: (context, constrain) {
+            return Scaffold(
+              appBar: constrain.maxWidth <= widthMobile
+                  ? AppBar(
+                      backgroundColor: Color(0xff1d2428),
+                      leading: Icon(
+                        Icons.ac_unit,
+                        color: Colors.white,
+                      ),
+                      actions: [
+                        PopupMenu(),
+                      ],
+                    )
+                  : null,
+              body: child,
+            );
+          },
+        ),
         routes: [
           GoRoute(
             path: "/",

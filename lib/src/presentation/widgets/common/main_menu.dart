@@ -73,7 +73,7 @@ class MainMenu extends StatelessWidget {
                 BlocProvider.of<LocaleBLoC>(context).add(ChangeLocaleEvent(val ?? 'en'));
               },
               decoration: InputDecoration.collapsed(hintText: ''),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, color: Colors.white),
               dropdownColor: Color(0xff1d2428),
               iconEnabledColor: Colors.white,
             ),
