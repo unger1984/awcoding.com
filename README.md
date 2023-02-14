@@ -1,16 +1,25 @@
-# portfolio
+# awcoding.com
 
-A new Flutter project.
+My portfolio site [awcoding.com](https://awcoding.com)
 
-## Getting Started
+Created with Flutter Web.
 
-This project is a starting point for a Flutter application.
+## History
 
-A few resources to get you started if this is your first Flutter project:
+[CHANGELOG](./CHANGELOG.md)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Analyze
+```shell
+# Поиск неиспользуемого кода
+flutter pub run dart_code_metrics:metrics check-unused-code lib
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Run
+
+```shell
+# Генерация кодегена
+flutter pub run build_runner build --delete-conflicting-outputs
+# Сборка релизной версии
+flutter build web --release
+```
+

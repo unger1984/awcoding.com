@@ -170,7 +170,7 @@ class AboutDesktop extends StatelessWidget {
                                   child: Padding(
                                     padding: EdgeInsets.only(bottom: sheight / 2),
                                     child: Image.asset(
-                                      'assets/png/i3.png',
+                                      'assets/png/I3.png',
                                       scale: 0.5,
                                       fit: BoxFit.cover,
                                     ),
