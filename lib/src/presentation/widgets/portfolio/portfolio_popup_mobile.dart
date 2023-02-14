@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/domain/entity/work_entity.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 @immutable
 class PortfolioPopupMobile extends StatelessWidget {
@@ -13,6 +14,9 @@ class PortfolioPopupMobile extends StatelessWidget {
       builder: (context) {
         double sizeTitle = 18.0;
         double sizeText = 12;
+
+        final linkGoogle = work.linkGoogle;
+        final linkApple = work.linkApple;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,40 +57,42 @@ class PortfolioPopupMobile extends StatelessWidget {
                     Expanded(child: SizedBox()),
                     Column(
                       children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/png/playmarket.png',
-                                width: 32,
-                                height: 32,
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                'Google Play Market',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
+                        if (linkGoogle != null)
+                          TextButton(
+                            onPressed: () => launchUrlString(linkGoogle),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/png/playmarket.png',
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Google Play Market',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/png/appstore.png',
-                                width: 32,
-                                height: 32,
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                'Apple Store',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
+                        if (linkApple != null)
+                          TextButton(
+                            onPressed: () => launchUrlString(linkApple),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/png/appstore.png',
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Apple Store',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
                       ],
                     ),
                   ],

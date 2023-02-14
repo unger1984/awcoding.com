@@ -23,6 +23,7 @@ dependencies:
   json_annotation: ^4.8.0
   l: ^3.2.0
   ndialog: ^4.3.0
+  url_launcher: ^6.1.9
 
 dev_dependencies:
   flutter_test:

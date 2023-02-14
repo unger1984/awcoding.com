@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/generated/l10n.dart';
 import 'package:portfolio/src/presentation/styles/styles.dart';
 import 'package:portfolio/src/presentation/widgets/common/main_menu.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AboutClipperRight extends CustomClipper<Path> {
   @override
@@ -62,15 +63,18 @@ class AboutDesktop extends StatelessWidget {
         double sizeText = 15;
         double sheight = 100;
         double stextleft = 100;
+        double sizeIco = 64;
         if (width < 1122) {
           sizeHi = 20;
           sizeName = 40;
           sizePosition = 12.5;
           height = 620;
+          sizeIco = 64;
         }
         if (width < 750) {
           sizeText = 10;
           stextleft = 10;
+          sizeIco = 32;
         }
 
         return SizedBox(
@@ -109,6 +113,39 @@ class AboutDesktop extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 fontSize: sizePosition,
                               ),
+                            ),
+                            SizedBox(height: 100),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                IconButton(
+                                  onPressed: () => launchUrlString('mailto:unger1984@gmail.com'),
+                                  icon: Icon(
+                                    Icons.alternate_email_outlined,
+                                    color: Color(0xff1d2428),
+                                    size: sizeIco,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () => launchUrlString('https://github.com/unger1984'),
+                                  icon: Image.asset(
+                                    'assets/png/github.png',
+                                    width: sizeIco,
+                                    height: sizeIco,
+                                    fit: BoxFit.contain,
+                                    color: Color(0xff1d2428),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () => launchUrlString('https://twitter.com/unger1984'),
+                                  icon: Image.asset(
+                                    'assets/png/twitter.png',
+                                    width: sizeIco,
+                                    height: sizeIco,
+                                    color: Color(0xff1d2428),
+                                  ),
+                                ),
+                              ],
                             ),
                             Expanded(child: SizedBox()),
                           ],

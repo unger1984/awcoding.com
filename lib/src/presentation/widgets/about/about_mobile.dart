@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/generated/l10n.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AboutClipperRight extends CustomClipper<Path> {
   @override
@@ -95,29 +96,31 @@ class AboutMobile extends StatelessWidget {
                           children: [
                             Expanded(child: SizedBox()),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () => launchUrlString('mailto:unger1984@gmail.com'),
                               icon: Icon(
-                                Icons.alternate_email,
+                                Icons.alternate_email_outlined,
                                 color: Colors.white,
                                 size: 32,
                               ),
                             ),
                             SizedBox(height: 10),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () => launchUrlString('https://github.com/unger1984'),
                               icon: Image.asset(
-                                'assets/png/github_w.png',
+                                'assets/png/github.png',
                                 width: 32,
                                 height: 32,
+                                color: Colors.white,
                               ),
                             ),
                             SizedBox(height: 10),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () => launchUrlString('https://twitter.com/unger1984'),
                               icon: Image.asset(
-                                'assets/png/github_w.png',
+                                'assets/png/twitter.png',
                                 width: 32,
                                 height: 32,
+                                color: Colors.white,
                               ),
                             ),
                             SizedBox(height: 50),
