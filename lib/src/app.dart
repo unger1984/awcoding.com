@@ -51,7 +51,7 @@ class _AppState extends State<App> {
               ],
               locale: Locale.fromSubtags(languageCode: st.locale),
               supportedLocales: S.delegate.supportedLocales,
-              title: 'Portfolio site',
+              onGenerateTitle: (context) => S.of(context).title,
               restorationScopeId: 'root',
               theme: ThemeData(
                 useMaterial3: true,
