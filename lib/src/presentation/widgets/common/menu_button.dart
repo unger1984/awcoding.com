@@ -7,8 +7,13 @@ class MenuButton extends StatefulWidget {
   final bool active;
   final bool main;
 
-  const MenuButton({Key? key, required this.title, required this.onPressed, this.active = false, this.main = false})
-      : super(key: key);
+  const MenuButton({
+    Key? key,
+    required this.title,
+    required this.onPressed,
+    this.active = false,
+    this.main = false,
+  }) : super(key: key);
 
   @override
   State<MenuButton> createState() => _MenuButtonState();
@@ -25,14 +30,17 @@ class _MenuButtonState extends State<MenuButton> {
 
   @override
   Widget build(BuildContext context) {
+    final bgColor = widget.main ? Colors.white : const Color(0xff1d2428);
+    final fontColor = widget.main ? const Color(0xff1d2428) : Colors.white;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+      padding: const EdgeInsets.all(5.0),
       child: TextButton(
         onPressed: widget.onPressed,
         onHover: handleHover,
         style: TextButton.styleFrom(
           backgroundColor:
-              isHover || widget.active ? (widget.main ? Colors.white : Color(0xff1d2428)) : Colors.transparent,
+              isHover || widget.active ? bgColor : Colors.transparent,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -40,8 +48,8 @@ class _MenuButtonState extends State<MenuButton> {
             widget.title,
             style: TextStyle(
               color: isHover || widget.active
-                  ? (widget.main ? Color(0xff1d2428) : Colors.white)
-                  : (widget.main ? Colors.white : Color(0xff1d2428)),
+                  ? fontColor
+                  : bgColor,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w700,
               fontSize: 17,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:portfolio/generated/l10n.dart';
 import 'package:portfolio/src/presentation/styles/styles.dart';
 import 'package:portfolio/src/presentation/widgets/common/main_menu.dart';
@@ -7,12 +8,13 @@ import 'package:portfolio/src/utils/const.dart';
 
 @immutable
 class SkillsPage extends StatelessWidget {
-  const SkillsPage({Key? key}) : super(key: key);
+  final BuildContext context;
+  const SkillsPage({Key? key, required this.context}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: gradientRadial,
       ),
       child: SingleChildScrollView(
@@ -20,7 +22,7 @@ class SkillsPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Center(
             child: ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: 800),
+              constraints: const BoxConstraints.tightFor(width: 800),
               child: LayoutBuilder(builder: (context, constrain) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +30,19 @@ class SkillsPage extends StatelessWidget {
                     if (constrain.maxWidth > widthMobile)
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
-                        child: Center(child: MainMenu()),
+                        child: Center(
+                          child: MainMenu(
+                            locale: Intl.getCurrentLocale(),
+                          ),
+                        ),
                       ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Text(
                       S.current.skills_1,
-                      style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
+                      style: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
                     ),
                     Wrap(
-                      children: [
+                      children: const [
                         SkillItem(title: 'HTML5', img: 'html'),
                         SkillItem(title: 'CSS3', img: 'css'),
                         SkillItem(title: 'JavaScript', img: 'js'),
@@ -46,20 +52,20 @@ class SkillsPage extends StatelessWidget {
                     ),
                     Text(
                       S.current.skills_2,
-                      style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
+                      style: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
                     ),
                     Wrap(
-                      children: [
+                      children: const [
                         SkillItem(title: 'Flutter', img: 'flutter'),
                         SkillItem(title: 'React Native', img: 'rn'),
                       ],
                     ),
                     Text(
                       S.current.skills_3,
-                      style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
+                      style: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, fontSize: 30),
                     ),
                     Wrap(
-                      children: [
+                      children: const [
                         SkillItem(title: 'NodeJS', img: 'node'),
                         SkillItem(title: 'TypeScript', img: 'ts'),
                         SkillItem(title: 'GoLang', img: 'go'),

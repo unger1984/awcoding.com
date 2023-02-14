@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:portfolio/generated/l10n.dart';
 import 'package:portfolio/src/presentation/styles/styles.dart';
 import 'package:portfolio/src/presentation/widgets/common/main_menu.dart';
@@ -7,14 +8,11 @@ import 'package:url_launcher/url_launcher_string.dart';
 class AboutClipperRight extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = Path()
-      ..addPolygon([
-        Offset(50, 0),
-        Offset(size.width, 0),
-        Offset(size.width, size.height),
-        Offset(0, size.height),
-      ], true);
-    return path;
+    return Path()
+      ..addPolygon(
+        [const Offset(50, 0), Offset(size.width, 0), Offset(size.width, size.height), Offset(0, size.height)],
+        true,
+      );
   }
 
   @override
@@ -29,7 +27,7 @@ class AboutClipperBottom extends CustomClipper<Path> {
     var controlPoint = Offset(size.width - 115, 100);
     var endPoint = Offset(size.width - 50, 0);
 
-    var path = Path()
+    return Path()
       ..moveTo(0, 0)
       ..lineTo(size.width - 190, 0)
       ..quadraticBezierTo(controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy)
@@ -37,8 +35,6 @@ class AboutClipperBottom extends CustomClipper<Path> {
       ..lineTo(size.width, size.height)
       ..lineTo(0, size.height)
       ..close();
-
-    return path;
   }
 
   @override
@@ -49,7 +45,8 @@ class AboutClipperBottom extends CustomClipper<Path> {
 
 @immutable
 class AboutDesktop extends StatelessWidget {
-  const AboutDesktop({Key? key}) : super(key: key);
+  final BuildContext context;
+  const AboutDesktop({Key? key, required this.context}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +56,6 @@ class AboutDesktop extends StatelessWidget {
         double sizeHi = 40;
         double sizeName = 80;
         double sizePosition = 25;
-        double height = 1000;
         double sizeText = 15;
         double sheight = 100;
         double stextleft = 100;
@@ -68,7 +64,6 @@ class AboutDesktop extends StatelessWidget {
           sizeHi = 20;
           sizeName = 40;
           sizePosition = 12.5;
-          height = 620;
           sizeIco = 64;
         }
         if (width < 750) {
@@ -82,7 +77,7 @@ class AboutDesktop extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: gradientRadial,
                 ),
                 child: Row(
@@ -95,8 +90,8 @@ class AboutDesktop extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.ac_unit, size: 60),
-                            Expanded(child: SizedBox()),
+                            const Icon(Icons.ac_unit, size: 60),
+                            const Expanded(child: SizedBox()),
                             Text(
                               S.current.header_hi,
                               style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.w700, fontSize: sizeHi),
@@ -109,12 +104,12 @@ class AboutDesktop extends StatelessWidget {
                               S.current.header_position,
                               style: TextStyle(
                                 fontFamily: 'Raleway',
-                                color: Color(0xff909090),
+                                color: const Color(0xff909090),
                                 fontWeight: FontWeight.w800,
                                 fontSize: sizePosition,
                               ),
                             ),
-                            SizedBox(height: 100),
+                            const SizedBox(height: 100),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -122,7 +117,7 @@ class AboutDesktop extends StatelessWidget {
                                   onPressed: () => launchUrlString('mailto:unger1984@gmail.com'),
                                   icon: Icon(
                                     Icons.alternate_email_outlined,
-                                    color: Color(0xff1d2428),
+                                    color: const Color(0xff1d2428),
                                     size: sizeIco,
                                   ),
                                 ),
@@ -133,7 +128,7 @@ class AboutDesktop extends StatelessWidget {
                                     width: sizeIco,
                                     height: sizeIco,
                                     fit: BoxFit.contain,
-                                    color: Color(0xff1d2428),
+                                    color: const Color(0xff1d2428),
                                   ),
                                 ),
                                 IconButton(
@@ -142,12 +137,12 @@ class AboutDesktop extends StatelessWidget {
                                     'assets/png/twitter.png',
                                     width: sizeIco,
                                     height: sizeIco,
-                                    color: Color(0xff1d2428),
+                                    color: const Color(0xff1d2428),
                                   ),
                                 ),
                               ],
                             ),
-                            Expanded(child: SizedBox()),
+                            const Expanded(child: SizedBox()),
                           ],
                         ),
                       ),
@@ -162,7 +157,7 @@ class AboutDesktop extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(left: 80.0, top: 65, bottom: 20),
-                                child: MainMenu(main: true),
+                                child: MainMenu(main: true, locale: Intl.getCurrentLocale()),
                               ),
                               Expanded(
                                 child: Align(
@@ -194,7 +189,7 @@ class AboutDesktop extends StatelessWidget {
                       ClipPath(
                         clipper: AboutClipperBottom(),
                         child: Container(
-                          color: Color(0xff1d2428),
+                          color: const Color(0xff1d2428),
                           child: Padding(
                             padding: EdgeInsets.only(left: stextleft, right: 200, top: 40),
                             child: Column(

@@ -32,9 +32,8 @@ class WorkBLoC extends Bloc<WorkEvent, WorkState> {
     add(const InitWorkEvent());
   }
 
-  Future<void> _init(InitWorkEvent event, Emitter<WorkState> emitter) async {
+  Future<void> _init(_, Emitter<WorkState> emitter) async {
     emitter(const LoadingWorkState());
-    // await Future<void>.delayed(Duration(seconds: 3));
     final works = await _workRepository.get();
     emitter(SuccessWorkState(works));
   }

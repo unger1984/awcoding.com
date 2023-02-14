@@ -31,8 +31,6 @@ class AppRouter {
   AppRouter._();
 
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final _mainNavigatorKey = GlobalKey<NavigatorState>();
-  // static final _shellNavigatorKey2 = GlobalKey<NavigatorState>();
 
   static Page<T> transitionsFade<T>(GoRouterState state, Widget child) {
     return CustomTransitionPage<T>(
@@ -94,17 +92,19 @@ class AppRouter {
             return Scaffold(
               appBar: constrain.maxWidth <= widthMobile
                   ? AppBar(
-                      backgroundColor: Color(0xff1d2428),
-                      leading: Icon(
+                      backgroundColor: const Color(0xff1d2428),
+                      leading: const Icon(
                         Icons.ac_unit,
                         color: Colors.white,
                       ),
-                      actions: [
+                      actions: const [
                         PopupMenu(),
                       ],
                     )
                   : null,
-              body: child,
+              body: Builder(
+                builder: (context) => child,
+              ),
             );
           },
         ),
@@ -112,17 +112,17 @@ class AppRouter {
           GoRoute(
             path: "/",
             name: "about",
-            pageBuilder: (context, state) => transitionsFade(state, AboutPage()),
+            pageBuilder: (context, state) => transitionsFade(state, AboutPage(context: context)),
           ),
           GoRoute(
             path: "/skills",
             name: "skills",
-            pageBuilder: (context, state) => transitionsFade(state, SkillsPage()),
+            pageBuilder: (context, state) => transitionsFade(state, SkillsPage(context: context)),
           ),
           GoRoute(
             path: "/portfolio",
             name: "portfolio",
-            pageBuilder: (context, state) => transitionsFade(state, PortfolioPage()),
+            pageBuilder: (context, state) => transitionsFade(state, PortfolioPage(context: context)),
           ),
         ],
       ),

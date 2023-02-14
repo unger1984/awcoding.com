@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:intl/intl.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:portfolio/src/domain/entity/work_entity.dart';
 import 'package:portfolio/src/domain/repositories/work_repository.dart';
@@ -13,7 +14,8 @@ import 'package:portfolio/src/utils/const.dart';
 
 @immutable
 class PortfolioPage extends StatefulWidget {
-  const PortfolioPage({Key? key}) : super(key: key);
+  final BuildContext context;
+  const PortfolioPage({Key? key, required this.context}) : super(key: key);
 
   @override
   State<PortfolioPage> createState() => _PortfolioPageState();
@@ -28,11 +30,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
     super.dispose();
   }
 
-  void showPopup(BuildContext ctx, WorkEntity work) {
+  void showPopup(_, WorkEntity work) {
     NDialog(
       dialogStyle: DialogStyle(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        backgroundColor: Color(0xff1d2428),
+        backgroundColor: const Color(0xff1d2428),
         contentPadding: EdgeInsets.zero,
       ),
       content: Builder(
@@ -55,7 +57,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
     return BlocProvider<WorkBLoC>.value(
       value: workBLoC,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: gradientRadial,
         ),
         child: SingleChildScrollView(
@@ -63,7 +65,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Center(
               child: ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: 800),
+                constraints: const BoxConstraints.tightFor(width: 800),
                 child: LayoutBuilder(
                   builder: (context, constrain) {
                     return Column(
@@ -73,12 +75,12 @@ class _PortfolioPageState extends State<PortfolioPage> {
                         if (constrain.maxWidth > widthMobile)
                           Padding(
                             padding: const EdgeInsets.only(top: 20.0),
-                            child: Center(child: MainMenu()),
+                            child: Center(child: MainMenu(locale: Intl.getCurrentLocale())),
                           ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         BlocBuilder<WorkBLoC, WorkState>(
                           builder: (context, state) => state.map(
-                            loading: (_) => Center(child: CircularProgressIndicator()),
+                            loading: (_) => const Center(child: CircularProgressIndicator()),
                             success: (st) => Wrap(
                               crossAxisAlignment: WrapCrossAlignment.center,
                               children: st.list
@@ -89,12 +91,12 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                         cursor: SystemMouseCursors.click,
                                         child: Container(
                                           margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-                                          color: Color(0xff1d2428).withOpacity(0.5),
+                                          color: const Color(0xff1d2428).withOpacity(0.5),
                                           child: Column(
                                             children: [
                                               Text(
                                                 work.created,
-                                                style: TextStyle(color: Colors.white),
+                                                style: const TextStyle(color: Colors.white),
                                               ),
                                               Image.network(
                                                 '/files/${work.img}',
@@ -104,7 +106,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                               ),
                                               Text(
                                                 work.title,
-                                                style: TextStyle(color: Colors.white),
+                                                style: const TextStyle(color: Colors.white),
                                               ),
                                             ],
                                           ),

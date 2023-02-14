@@ -29,7 +29,7 @@ class PortfolioPopupMobile extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -54,7 +54,7 @@ class PortfolioPopupMobile extends StatelessWidget {
                         fontSize: sizeText,
                       ),
                     ),
-                    Expanded(child: SizedBox()),
+                    const Expanded(child: SizedBox()),
                     Column(
                       children: [
                         if (linkGoogle != null)
@@ -67,8 +67,8 @@ class PortfolioPopupMobile extends StatelessWidget {
                                   width: 32,
                                   height: 32,
                                 ),
-                                SizedBox(width: 10),
-                                Text(
+                                const SizedBox(width: 10),
+                                const Text(
                                   'Google Play Market',
                                   style: TextStyle(color: Colors.white),
                                 ),
@@ -85,8 +85,8 @@ class PortfolioPopupMobile extends StatelessWidget {
                                   width: 32,
                                   height: 32,
                                 ),
-                                SizedBox(width: 10),
-                                Text(
+                                const SizedBox(width: 10),
+                                const Text(
                                   'Apple Store',
                                   style: TextStyle(color: Colors.white),
                                 ),

@@ -14,7 +14,9 @@ class PortfolioPopupDesktop extends StatelessWidget {
       builder: (context) {
         double sizeTitle = 30.0;
         double sizeText = 18;
-        if (MediaQuery.of(context).size.width < 800) {
+        final size = MediaQuery.of(context).size;
+
+        if (size.width < 800) {
           sizeTitle = 18;
           sizeText = 12;
         }
@@ -22,15 +24,15 @@ class PortfolioPopupDesktop extends StatelessWidget {
         final linkGoogle = work.linkGoogle;
         final linkApple = work.linkApple;
 
-        return Container(
-          height: MediaQuery.of(context).size.height / 1.5,
+        return SizedBox(
+          height: size.height / 1.5,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ConstrainedBox(
-                constraints: BoxConstraints.expand(width: MediaQuery.of(context).size.width / 2),
+                constraints: BoxConstraints.expand(width: size.width / 2),
                 child: Image.network(
                   '/files/${work.img}',
                   fit: BoxFit.fitHeight,
@@ -60,7 +62,7 @@ class PortfolioPopupDesktop extends StatelessWidget {
                           fontSize: sizeText,
                         ),
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       Row(
                         children: [
                           if (linkGoogle != null)
@@ -73,8 +75,8 @@ class PortfolioPopupDesktop extends StatelessWidget {
                                     width: 32,
                                     height: 32,
                                   ),
-                                  SizedBox(width: 10),
-                                  Text(
+                                  const SizedBox(width: 10),
+                                  const Text(
                                     'Google Play Market',
                                     style: TextStyle(color: Colors.white),
                                   ),
@@ -91,8 +93,8 @@ class PortfolioPopupDesktop extends StatelessWidget {
                                     width: 32,
                                     height: 32,
                                   ),
-                                  SizedBox(width: 10),
-                                  Text(
+                                  const SizedBox(width: 10),
+                                  const Text(
                                     'Apple Store',
                                     style: TextStyle(color: Colors.white),
                                   ),

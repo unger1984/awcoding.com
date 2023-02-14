@@ -19,10 +19,10 @@ class SkillItem extends StatelessWidget {
             width: 85,
             height: 85,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             title,
-            style: TextStyle(fontFamily: 'Montserrat'),
+            style: const TextStyle(fontFamily: 'Montserrat'),
           ),
         ],
       ),
