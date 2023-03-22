@@ -1,7 +1,7 @@
 name: portfolio
 description: My portfolio site.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
@@ -13,18 +13,19 @@ dependencies:
     sdk: flutter
 
   bloc_concurrency: ^0.2.1
+  colorize: ^3.0.0
   cupertino_icons: ^1.0.5
-  dio: ^5.0.0
+  dio: ^5.0.3
   flutter_bloc: ^8.1.2
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.12.0
   freezed_annotation: ^2.2.0
   get_it: ^7.2.0
-  go_router: ^6.0.6
+  go_router: ^6.4.0
   intl: ^0.18.0
   json_annotation: ^4.8.0
-  l: ^3.2.0
+  logging: ^1.1.1
   ndialog: ^4.3.0
-  url_launcher: ^6.1.9
+  url_launcher: ^6.1.10
   url_strategy: ^0.2.0
 
 dev_dependencies:
@@ -35,7 +36,7 @@ dev_dependencies:
   dart_code_metrics: ^5.6.0
   flutter_lints: ^2.0.1
   freezed: ^2.3.2
-  intl_utils: ^2.8.1
+  intl_utils: ^2.8.2
   json_serializable: ^6.6.1
 
 dependency_overrides:
@@ -72,10 +73,6 @@ flutter_intl:
 flutter_icons:
   android: false
   ios: false
-#  image_path: "assets/png/icon.png"
-#  min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
     image_path: "assets/png/I3.png"
-#    background_color: "#hexcode"
-#    theme_color: "#hexcode"

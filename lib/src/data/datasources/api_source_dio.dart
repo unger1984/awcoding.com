@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:logging/logging.dart';
 import 'package:portfolio/src/domain/datasources/api_source.dart';
-import 'package:portfolio/src/utils/logger.dart';
 
 /// [Dio] реализация поставщика данных API.
 class ApiSourceDio extends ApiSource {
+  static final _log = Logger('ApiSourceDio');
   late Dio _dio;
   final String baseUrl;
   final List<Interceptor>? interceptors;
@@ -21,11 +22,11 @@ class ApiSourceDio extends ApiSource {
     _dio = dio ?? Dio();
     _dio
       ..options.baseUrl = baseUrl
-      ..options.connectTimeout = const Duration(seconds: 5)
-      ..options.receiveTimeout = const Duration(seconds: 3)
+      ..options.connectTimeout = const Duration(seconds: 15)
+      ..options.receiveTimeout = const Duration(seconds: 13)
       ..httpClientAdapter
       ..options.headers = {
-        'Connection-Type': 'application/json; charset=UTF-8',
+        Headers.contentTypeHeader: 'application/json; charset=UTF-8',
       };
 
     _addRefreshInterseptor();
@@ -72,7 +73,7 @@ class ApiSourceDio extends ApiSource {
 
               return handler.reject(error);
             } catch (exc, stack) {
-              logger.e(exc, stack);
+              _log.severe('InterceptorsWrapper', exc, stack);
               if (onLogout != null) {
                 // При неудаче вызовим коллбек разлогинивания.
                 onLogout();
