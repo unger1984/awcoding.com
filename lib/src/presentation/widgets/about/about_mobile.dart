@@ -1,15 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:portfolio/generated/l10n.dart';
+import 'package:portfolio/src/generated/l10n.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class AboutClipperRight extends CustomClipper<Path> {
+class AboutMobileClipperRight extends CustomClipper<Path> {
+  const AboutMobileClipperRight();
+
   @override
   Path getClip(Size size) {
     return Path()
       ..addPolygon(
         [
           Offset(0, size.height),
-          Offset(0, size.height - size.height + 100),
+          const Offset(0, 100),
           Offset(size.width, 0),
           Offset(size.width, size.height),
         ],
@@ -27,7 +31,7 @@ class AboutClipperRight extends CustomClipper<Path> {
 class AboutMobile extends StatelessWidget {
   final BuildContext context;
 
-  const AboutMobile({Key? key, required this.context}) : super(key: key);
+  const AboutMobile({super.key, required this.context});
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +47,7 @@ class AboutMobile extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 220.0),
               child: Image.asset(
                 'assets/png/I3.png',
+                semanticLabel: 'Andrey Unger',
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -52,7 +57,7 @@ class AboutMobile extends StatelessWidget {
             child: SizedBox(
               height: 300,
               child: ClipPath(
-                clipper: AboutClipperRight(),
+                clipper: const AboutMobileClipperRight(),
                 child: Container(
                   color: const Color(0xff1d2428),
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -100,7 +105,7 @@ class AboutMobile extends StatelessWidget {
                           children: [
                             const Expanded(child: SizedBox()),
                             IconButton(
-                              onPressed: () => launchUrlString('mailto:unger1984@gmail.com'),
+                              onPressed: () => unawaited(launchUrlString('mailto:unger1984@gmail.com')),
                               icon: const Icon(
                                 Icons.alternate_email_outlined,
                                 color: Colors.white,
@@ -109,9 +114,10 @@ class AboutMobile extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             IconButton(
-                              onPressed: () => launchUrlString('https://github.com/unger1984'),
+                              onPressed: () => unawaited(launchUrlString('https://github.com/unger1984')),
                               icon: Image.asset(
                                 'assets/png/github.png',
+                                semanticLabel: 'github',
                                 width: 32,
                                 height: 32,
                                 color: Colors.white,
@@ -119,9 +125,10 @@ class AboutMobile extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             IconButton(
-                              onPressed: () => launchUrlString('https://twitter.com/unger1984'),
+                              onPressed: () => unawaited(launchUrlString('https://twitter.com/unger1984')),
                               icon: Image.asset(
                                 'assets/png/twitter.png',
+                                semanticLabel: 'twitter',
                                 width: 32,
                                 height: 32,
                                 color: Colors.white,

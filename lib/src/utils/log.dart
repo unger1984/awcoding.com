@@ -1,24 +1,25 @@
+// ignore_for_file: prefer-static-class
+
 import 'package:colorize/colorize.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 
-void setupLogging() {
-  void multiline(Object? obj, Styles style, {String? startText, String? endText}) {
-    if (obj != null) {
-      if (startText != null) color('\t\t$startText', front: style);
-      final lines = (obj.toString().split('\n')).where((line) => line.trim().isNotEmpty);
-      for (final line in lines) {
-        color('\t\t$line', front: style);
-      }
-      if (endText != null) color('\t\t$endText', front: style);
-    }
+void multiline(Object? obj, Styles style, {String? startText, String? endText}) {
+  if (obj == null) return;
+  if (startText != null) color('\t\t$startText', front: style);
+  final lines = (obj.toString().split('\n')).where((line) => line.trim().isNotEmpty);
+  for (final line in lines) {
+    color('\t\t$line', front: style);
   }
+  if (endText != null) color('\t\t$endText', front: style);
+}
 
+void setupLogging() {
   Logger.root.level = kDebugMode ? Level.ALL : Level.INFO;
 
   Logger.root.onRecord.listen((record) {
-    var front = Styles.BLACK;
+    Styles front = Styles.BLACK;
     switch (record.level.toString()) {
       case 'SHOUT':
       case 'SEVERE':
@@ -37,7 +38,7 @@ void setupLogging() {
         front = Styles.YELLOW;
         break;
     }
-    final num = Colorize('[${record.sequenceNumber}]')
+    final num = Colorize('[${NumberFormat().format(record.sequenceNumber)}]')
       ..bold()
       ..apply(front);
     final time = Colorize(DateFormat('HH:mm:ss').format(record.time))

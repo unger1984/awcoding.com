@@ -1,3 +1,5 @@
+// ignore_for_file: avoid-dynamic
+
 import 'package:logging/logging.dart';
 import 'package:portfolio/src/data/models/work_model.dart';
 import 'package:portfolio/src/domain/datasources/api_source.dart';
@@ -17,8 +19,8 @@ class WorkRepositoryImpl extends WorkRepository {
       if (res != null) {
         return res.cast<Map<String, dynamic>>().map((json) => WorkModel.fromJson(json).toEntity()).toList();
       }
-    } catch (exc, stack) {
-      _log.severe('get', exc, stack);
+    } catch (exception, stack) {
+      _log.severe('get', exception, stack);
     }
 
     return [];

@@ -6,17 +6,15 @@ import 'package:portfolio/src/utils/const.dart';
 @immutable
 class AboutPage extends StatelessWidget {
   final BuildContext context;
-  const AboutPage({Key? key, required this.context}) : super(key: key);
+  const AboutPage({super.key, required this.context});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constrain) {
-        if (constrain.maxWidth <= widthMobile) {
-          return AboutMobile(context: context);
-        }
-
-        return AboutDesktop(context: context);
+        return (constrain.maxWidth <= Consts.widthMobile)
+            ? AboutMobile(context: context)
+            : AboutDesktop(context: context);
       },
     );
   }

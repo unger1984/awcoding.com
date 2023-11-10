@@ -1,42 +1,45 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:portfolio/generated/l10n.dart';
+import 'package:portfolio/src/generated/l10n.dart';
 import 'package:portfolio/src/presentation/blocs/locale_bloc.dart';
 import 'package:portfolio/src/presentation/routes/app_router.dart';
 
 @immutable
 class App extends StatefulWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   State<App> createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  final localeBLoC = LocaleBLoC();
+  final _localeBLoC = LocaleBLoC();
+  final _appRouter = AppRouter();
 
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations([
+    unawaited(SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-    ]);
+    ]));
     // findSystemLocale().then((value) => localeBLoC.add(ChangeLocaleEvent(value.substring(0, 2))));
   }
 
   @override
   dispose() {
-    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-    localeBLoC.close();
+    unawaited(SystemChrome.setPreferredOrientations(DeviceOrientation.values));
+    unawaited(_localeBLoC.close());
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LocaleBLoC>.value(
-      value: localeBLoC,
+      value: _localeBLoC,
       child: BlocBuilder<LocaleBLoC, LocaleState>(
         builder: (context, state) => state.map(
           loading: (_) => Container(),
@@ -58,7 +61,7 @@ class _AppState extends State<App> {
                 colorSchemeSeed: Colors.blueGrey,
                 scaffoldBackgroundColor: Colors.white,
               ),
-              routerConfig: AppRouter.router,
+              routerConfig: _appRouter.router,
             );
           },
         ),

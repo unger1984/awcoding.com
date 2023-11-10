@@ -8,10 +8,12 @@ class AppBlocObserver extends BlocObserver {
   // ignore: avoid-global-state не ругайся плиз)
   static AppBlocObserver? _instance;
 
-  factory AppBlocObserver.instance() => _instance ??= AppBlocObserver._();
-  AppBlocObserver._();
+  factory AppBlocObserver.instance() => _instance ??= const AppBlocObserver._();
+  const AppBlocObserver._();
 
   @override
+  // ХЗ что тут за блок будет
+  // ignore: avoid-dynamic
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
     _log.shout('Unhandled BLoC error', stackTrace);

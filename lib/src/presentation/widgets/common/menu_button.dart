@@ -3,28 +3,28 @@ import 'package:flutter/material.dart';
 @immutable
 class MenuButton extends StatefulWidget {
   final String title;
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
   final bool active;
   final bool main;
 
   const MenuButton({
-    Key? key,
+    super.key,
     required this.title,
     required this.onPressed,
     this.active = false,
     this.main = false,
-  }) : super(key: key);
+  });
 
   @override
   State<MenuButton> createState() => _MenuButtonState();
 }
 
 class _MenuButtonState extends State<MenuButton> {
-  bool isHover = false;
+  bool _isHover = false;
 
-  void handleHover(bool hover) {
+  void _handleHover(bool hover) {
     setState(() {
-      isHover = hover;
+      _isHover = hover;
     });
   }
 
@@ -37,19 +37,16 @@ class _MenuButtonState extends State<MenuButton> {
       padding: const EdgeInsets.all(5.0),
       child: TextButton(
         onPressed: widget.onPressed,
-        onHover: handleHover,
+        onHover: _handleHover,
         style: TextButton.styleFrom(
-          backgroundColor:
-              isHover || widget.active ? bgColor : Colors.transparent,
+          backgroundColor: _isHover || widget.active ? bgColor : Colors.transparent,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
             widget.title,
             style: TextStyle(
-              color: isHover || widget.active
-                  ? fontColor
-                  : bgColor,
+              color: _isHover || widget.active ? fontColor : bgColor,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w700,
               fontSize: 17,

@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl_browser.dart';
@@ -22,7 +23,7 @@ class LocaleBLoC extends Bloc<LocaleEvent, LocaleState> {
   LocaleBLoC() : super(const LoadingLocaleState()) {
     on<LocaleEvent>(
       (event, emitter) => event.map(
-        init: (event) => _init(event, emitter),
+        init: (event) async => await _init(emitter),
         change: (event) => _change(event, emitter),
       ),
     );
@@ -30,13 +31,13 @@ class LocaleBLoC extends Bloc<LocaleEvent, LocaleState> {
     add(const InitLocaleEvent());
   }
 
-  Future<void> _init(_, Emitter<LocaleState> emitter) async {
+  Future<void> _init(Emitter<LocaleState> emitter) async {
     emitter(const LoadingLocaleState());
     final locale = await findSystemLocale();
-    emitter(SuccessLocaleState(locale.substring(0, 2)));
+    emitter(SuccessLocaleState(locale.characters.getRange(0, 2).toString()));
   }
 
-  void _change(ChangeLocaleEvent event, Emitter<LocaleState> emitter) async {
+  void _change(ChangeLocaleEvent event, Emitter<LocaleState> emitter) {
     emitter(SuccessLocaleState(event.locale));
   }
 }

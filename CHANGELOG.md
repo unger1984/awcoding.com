@@ -1,3 +1,11 @@
+# 1.1.0+3 10.11.2023
+
+* Update dependencies
+* Add DCM
+* Fix DCM warnings
+* Add Husky && pre-commit hooks
+* Add 2 position in portfolio
+
 ## 1.0.1+2 22.03.2023
 
 * Update dependencies

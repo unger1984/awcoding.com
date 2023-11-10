@@ -10,12 +10,12 @@ import 'package:portfolio/src/utils/di.dart';
 import 'package:portfolio/src/utils/log.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-Future<void> main() async {
+void main() {
   final log = Logger('Main');
   WidgetsFlutterBinding.ensureInitialized();
   setupLogging();
   setPathUrlStrategy();
-  await setupGetIt();
+  setupGetIt();
 
   runZonedGuarded<void>(
     () {

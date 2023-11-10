@@ -26,13 +26,13 @@ class WorkBLoC extends Bloc<WorkEvent, WorkState> {
         super(const LoadingWorkState()) {
     on<WorkEvent>(
       (event, emitter) => event.map(
-        init: (event) => _init(event, emitter),
+        init: (event) async => await _init(emitter),
       ),
     );
     add(const InitWorkEvent());
   }
 
-  Future<void> _init(_, Emitter<WorkState> emitter) async {
+  Future<void> _init(Emitter<WorkState> emitter) async {
     emitter(const LoadingWorkState());
     final works = await _workRepository.get();
     emitter(SuccessWorkState(works));

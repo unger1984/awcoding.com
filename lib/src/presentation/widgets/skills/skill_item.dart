@@ -5,7 +5,7 @@ class SkillItem extends StatelessWidget {
   final String img;
   final String title;
 
-  const SkillItem({Key? key, required this.title, required this.img}) : super(key: key);
+  const SkillItem({super.key, required this.title, required this.img});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +16,12 @@ class SkillItem extends StatelessWidget {
         children: [
           Image.asset(
             'assets/png/$img.png',
+            semanticLabel: img,
             width: 85,
             height: 85,
           ),
           const SizedBox(height: 10),
-          Text(
-            title,
-            style: const TextStyle(fontFamily: 'Montserrat'),
-          ),
+          Text(title, style: const TextStyle(fontFamily: 'Montserrat')),
         ],
       ),
     );

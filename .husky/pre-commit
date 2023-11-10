@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+dart fix --apply
+flutter analyze --fatal-infos --fatal-warnings
+dcm check-unused-files lib
+dcm analyze lib --fatal-style --fatal-performance --fatal-warnings
+git add .

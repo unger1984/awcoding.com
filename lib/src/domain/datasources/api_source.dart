@@ -1,3 +1,8 @@
+// ignore_for_file: avoid-dynamic
+
+import 'package:flutter/material.dart';
+import 'package:portfolio/src/utils/types.dart';
+
 /// Интерфейс поставщика данных API.
 abstract class ApiSource {
   /// Del auth information.
@@ -8,8 +13,8 @@ abstract class ApiSource {
   // onLogout - вызывается если не прошел вызов onRefresh
   void setAuthHeader(
     String token, {
-    Future<String?> Function()? onRefresh,
-    void Function()? onLogout,
+    AsyncVoidCallback<String?>? onRefresh,
+    VoidCallback? onLogout,
   });
 
   // GET request to API

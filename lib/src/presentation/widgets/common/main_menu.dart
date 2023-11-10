@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:portfolio/generated/l10n.dart';
+import 'package:portfolio/src/generated/l10n.dart';
 import 'package:portfolio/src/presentation/blocs/locale_bloc.dart';
+import 'package:portfolio/src/presentation/routes/app_router.dart';
 import 'package:portfolio/src/presentation/widgets/common/menu_button.dart';
 
 @immutable
@@ -11,11 +12,11 @@ class MainMenu extends StatelessWidget {
   final bool main;
   final String locale;
 
-  const MainMenu({Key? key, this.main = false, required this.locale}) : super(key: key);
+  const MainMenu({super.key, this.main = false, required this.locale});
 
   @override
   Widget build(BuildContext context) {
-    final go = GoRouter.of(context);
+    final location = AppRouter.ofLocation(context);
 
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
@@ -24,19 +25,19 @@ class MainMenu extends StatelessWidget {
           main: main,
           onPressed: () => context.goNamed("about"),
           title: S.current.menu_about,
-          active: go.location == "/",
+          active: location == "/",
         ),
         MenuButton(
           main: main,
           onPressed: () => context.goNamed("skills"),
           title: S.current.menu_skills,
-          active: go.location == "/skills",
+          active: location == "/skills",
         ),
         MenuButton(
           main: main,
           onPressed: () => context.goNamed("portfolio"),
           title: S.current.menu_portfolio,
-          active: go.location == "/portfolio",
+          active: location == "/portfolio",
         ),
         SizedBox(
           width: 90,
@@ -49,6 +50,7 @@ class MainMenu extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/png/rus.png',
+                      semanticLabel: 'rus',
                       width: 32,
                       height: 32,
                     ),
@@ -62,6 +64,7 @@ class MainMenu extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/png/eng.png',
+                      semanticLabel: 'eng',
                       width: 32,
                       height: 32,
                     ),
