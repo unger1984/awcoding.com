@@ -27,7 +27,7 @@ class _PopupMenuState extends State<PopupMenu> {
     return PopupMenuButton(
       icon: const Icon(Icons.menu, color: Colors.white),
       itemBuilder: (context) => [
-        PopupMenuItem(
+        PopupMenuItem<void>(
           child: Text(
             S.of(context).menu_about,
             style: TextStyle(
@@ -37,7 +37,7 @@ class _PopupMenuState extends State<PopupMenu> {
           ),
           onTap: () => context.goNamed("about"),
         ),
-        PopupMenuItem(
+        PopupMenuItem<void>(
           child: Text(
             S.of(context).menu_skills,
             style: TextStyle(
@@ -47,7 +47,7 @@ class _PopupMenuState extends State<PopupMenu> {
           ),
           onTap: () => context.goNamed("skills"),
         ),
-        PopupMenuItem(
+        PopupMenuItem<void>(
           child: Text(
             S.of(context).menu_portfolio,
             style: TextStyle(
@@ -57,7 +57,7 @@ class _PopupMenuState extends State<PopupMenu> {
           ),
           onTap: () => context.goNamed("portfolio"),
         ),
-        PopupMenuItem(
+        PopupMenuItem<void>(
           child: DropdownButtonFormField<String>(
             value: Intl.getCurrentLocale(),
             items: [

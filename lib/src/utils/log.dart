@@ -18,6 +18,8 @@ void multiline(Object? obj, Styles style, {String? startText, String? endText}) 
 void setupLogging() {
   Logger.root.level = kDebugMode ? Level.ALL : Level.INFO;
 
+  // Это диспозится при вызходи из прилы
+  // ignore: avoid-unassigned-stream-subscriptions
   Logger.root.onRecord.listen((record) {
     Styles front = Styles.BLACK;
     switch (record.level.toString()) {

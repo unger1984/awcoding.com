@@ -1,3 +1,10 @@
+# 1.1.1 31.01.2023
+
+* Update dependencies
+* Fix DCM warnings
+* Add 1 position in portfolio
+* Fix README
+
 # 1.1.0+3 10.11.2023
 
 * Update dependencies

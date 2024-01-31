@@ -2,14 +2,25 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
-    - 'example/**'
-    - 'build/**'
-    - '**/*.g.dart'
-    - '**/*.freezed.dart'
-    - '**/generated/**'
+    - "**/*.g.dart"
+    - "**/*.gr.dart"
+    - "**/*.freezed.dart"
+    - "**/*.mocks.dart"
+    - "**/generated/**"
+
+  language:
+    strict-inference: true
+    strict-raw-types: true
+
+  errors:
+    invalid_annotation_target: ignore # мешает freezed
+    unnecessary_getters_setters: ignore # мешает делать сеттеры и геттеры для приватных свойств
+    lines_longer_than_80_chars: ignore # мешает длинне строк
 
 linter:
   rules:
+    always_use_package_imports: true # использовать полные импорты вместо сокращенных
+    use_build_context_synchronously: false # DCM перекрывает
 
 dart_code_metrics:
   extends:
@@ -17,14 +28,17 @@ dart_code_metrics:
     - package:dart_code_metrics_presets/bloc.yaml
     - package:dart_code_metrics_presets/provider.yaml
     - package:dart_code_metrics_presets/get_it.yaml
-    - package:dart_code_metrics_presets/intl.yaml
+    #    - package:dart_code_metrics_presets/intl.yaml
     - package:dart_code_metrics_presets/pub.yaml
   assists:
   formatter:
     line-length: 120
   rules:
     - avoid-cubits: false
+    - avoid-duplicate-initializers: false # не работает правило!
+    - avoid-duplicate-map-keys: false # не работает правило!
     - avoid-ignoring-return-values: false
+    - avoid-inferrable-type-arguments: false
     - avoid-late-keyword:
         allow-initialized: true
     - avoid-non-ascii-symbols: false
@@ -32,7 +46,9 @@ dart_code_metrics:
         ignored-names:
           - context
           - event
+          - state
     - avoid-similar-names: false
+    - avoid-undisposed-instances: false # не работает правило!
     - arguments-ordering: false
     - format-comment:
         only-doc-comments: true
@@ -49,10 +65,11 @@ dart_code_metrics:
     - no-magic-number: false
     - parameters-ordering: false
     - prefer-addition-subtraction-assignments: false
-    - prefer-correct-callback-field-name:
-        name-pattern: (^on[A-Z]+|^_on[A-Z]+)
     - prefer-correct-handler-name:
-        name-pattern: (^handle[A-Z]+|Builder$|^unawaited|Listener$)
+        name-pattern: (^handle[A-Z]+|^unawaited|Listener$)
+    - prefer-correct-identifier-length:
+        exceptions: [ 'id','x','y','db', 'tg', 'bg' ]
+        min-identifier-length: 3
     - prefer-correct-switch-length:
         min-length: 2
     - prefer-match-file-name: false
@@ -60,3 +77,4 @@ dart_code_metrics:
         allowed-duplicated-chains: 5
     - prefer-widget-private-members:
         ignore-static: true
+

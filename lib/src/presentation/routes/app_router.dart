@@ -57,17 +57,17 @@ class AppRouter {
             GoRoute(
               path: "/",
               name: "about",
-              pageBuilder: (context, state) => _transitionsFadeBuilder(state, AboutPage(context: context)),
+              pageBuilder: (context, state) => _handleTransitionsFadeBuilder(state, AboutPage(context: context)),
             ),
             GoRoute(
               path: "/skills",
               name: "skills",
-              pageBuilder: (context, state) => _transitionsFadeBuilder(state, SkillsPage(context: context)),
+              pageBuilder: (context, state) => _handleTransitionsFadeBuilder(state, SkillsPage(context: context)),
             ),
             GoRoute(
               path: "/portfolio",
               name: "portfolio",
-              pageBuilder: (context, state) => _transitionsFadeBuilder(state, PortfolioPage(context: context)),
+              pageBuilder: (context, state) => _handleTransitionsFadeBuilder(state, PortfolioPage(context: context)),
             ),
           ],
         ),
@@ -92,7 +92,7 @@ class AppRouter {
     return matchList.uri.toString();
   }
 
-  static Page<T> _transitionsFadeBuilder<T>(GoRouterState state, Widget child) {
+  static Page<T> _handleTransitionsFadeBuilder<T>(GoRouterState state, Widget child) {
     return CustomTransitionPage<T>(
       key: state.pageKey,
       child: child,
