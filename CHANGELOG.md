@@ -1,3 +1,11 @@
+# 1.1.2+5 31.01.2023
+
+* Change freezed to sealed
+* Remove json_serializable
+* Fix prefer-static-class
+* Change go_router to auto_route
+* Change file structure
+
 # 1.1.1 31.01.2023
 
 * Update dependencies
